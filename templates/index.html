@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Sentiment Analysis</h1>
+        <form method="POST" action="/" class="mt-4">
+            <div class="form-group">
+                <label for="text">Enter text:</label>
+                <textarea id="text" name="text" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze</button>
+        </form>
+        {% if sentiment %}
+        <div class="mt-4">
+            <h3>Analysis Results:</h3>
+            <p><strong>Positive:</strong> {{ sentiment.pos }}</p>
+            <p><strong>Negative:</strong> {{ sentiment.neg }}</p>
+            <p><strong>Neutral:</strong> {{ sentiment.neu }}</p>
+            <h4>Final Emotion: {{ final_emotion }}</h4>
+            <h4>Input Text: {{ user_input }}</h4>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
